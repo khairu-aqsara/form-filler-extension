@@ -98,3 +98,14 @@ The extension consists of the following files:
 - `faker.js` - The Faker.js library for generating fake data
 - `test.html` - A test form to demonstrate the extension
 - v1.1: Fixed message passing issue and added scripting permission
+
+## Changelog
+
+### v1.4
+- Added support for number input fields
+- Added support for date input fields
+- Added support for color input fields
+- Added support for password input fields (default: 12345678)
+
+### v1.3
+- Initial release with basic form filling capabilities

@@ -4,6 +4,27 @@ function getFieldType(input) {
   const type = input.type.toLowerCase();
   const id = input.id.toLowerCase();
   
+  // Check for number fields
+  if (type === 'number' || name.includes('number') || name.includes('quantity') || 
+      id.includes('number') || id.includes('quantity')) {
+    return 'number';
+  }
+
+  // Check for date fields
+  if (type === 'date' || name.includes('date') || id.includes('date')) {
+    return 'date';
+  }
+
+  // Check for color fields
+  if (type === 'color' || name.includes('color') || id.includes('color')) {
+    return 'color';
+  }
+
+  // Check for password fields
+  if (type === 'password' || name.includes('password') || id.includes('password')) {
+    return 'password';
+  }
+  
   // Check for email fields
   if (type === 'email' || name.includes('email') || id.includes('email')) {
     return 'email';
@@ -104,6 +125,14 @@ function generateFakeData(fieldType) {
       return faker.address.zipCode();
     case 'company':
       return faker.company.companyName();
+    case 'number':
+      return faker.random.number({ min: 1, max: 1000 });
+    case 'date':
+      return faker.date.between('2000-01-01', '2030-12-31').toISOString().split('T')[0];
+    case 'color':
+      return faker.internet.color();
+    case 'password':
+      return '12345678';
     default:
       return faker.lorem.word();
   }
@@ -111,8 +140,8 @@ function generateFakeData(fieldType) {
 
 // Function to fill all form fields
 function fillFormFields() {
-  // Handle text inputs and email
-  const textInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+  // Handle text inputs, email, tel, number, date, color, and password
+  const textInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], input[type="color"], input[type="password"]');
   textInputs.forEach(input => {
     const fieldType = getFieldType(input);
     const fakeData = generateFakeData(fieldType);
