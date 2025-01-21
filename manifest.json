@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Form Auto Fill",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Automatically fill forms with realistic data using Faker",
   "permissions": [
     "contextMenus",
