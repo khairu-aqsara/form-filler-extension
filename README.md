@@ -1,6 +1,11 @@
 # Form Auto Fill Chrome Extension v1.3
 
-A Chrome extension that automatically fills forms with realistic fake data using Faker.js.
+A Chrome/Edge extension that automatically fills forms with realistic fake data using Faker.js.
+
+<p align="center">
+   <img src="chrome.png" alt="Chrome Extension" width="400"/>
+   <img src="edge.png" alt="Edge Extension" width="400"/>
+</p>
 
 ## Features
 
