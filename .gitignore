@@ -1,0 +1,13 @@
+# Built extension
+form-auto-fill.zip
+
+# Editor files
+.vscode/
+.idea/
+
+# Node modules
+node_modules/
+
+# Build artifacts
+dist/
+build/

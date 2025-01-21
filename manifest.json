@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Form Auto Fill",
+  "version": "1.3",
+  "description": "Automatically fill forms with realistic data using Faker",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["dist/faker.min.js", "dist/locales.min.js", "dist/content.min.js"]
+  }],
+  "icons": {
+    "48": "slack.png",
+    "128": "slack.png"
+  }
+}
