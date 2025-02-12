@@ -1,29 +1,42 @@
 {
   "manifest_version": 3,
-  "name": "Form Filler",
+  "name": "Form Filler with Faker",
   "version": "1.0",
+  "description": "Fill forms with realistic fake data using Faker.js",
   "permissions": [
     "activeTab",
     "contextMenus",
-    "notifications",
     "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": [
-      "locales.js",
+  "web_accessible_resources": [{
+    "resources": [
       "faker.js",
-      "content.js"
-    ]
+      "locales.js",
+      "field-patterns.js",
+      "field-detection.js",
+      "data-generators.js",
+      "form-filler.js",
+      "content-script.js"
+    ],
+    "matches": ["<all_urls>"]
   }],
-  "action": {
-    "default_icon": "slack.png"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },
   "icons": {
     "48": "slack.png",
     "128": "slack.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "slack.png",
+      "128": "slack.png"
+    }
   }
 }
