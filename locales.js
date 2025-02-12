@@ -13,15 +13,43 @@
     { code: 'ru', name: 'Russian' }
   ];
 
-  // Expose LOCALES to the appropriate global object
+  const LOCALE_FORMATS = {
+    date: {
+      'en': 'MM/DD/YYYY',
+      'de': 'DD.MM.YYYY',
+      'fr': 'DD/MM/YYYY',
+      'es': 'DD/MM/YYYY',
+      'it': 'DD/MM/YYYY',
+      'ja': 'YYYY/MM/DD',
+      'zh_CN': 'YYYY-MM-DD'
+    },
+    phone: {
+      'en': '(###) ###-####',
+      'de': '+49 ### #######',
+      'fr': '+33 # ## ## ## ##',
+      'es': '+34 ### ### ###',
+      'it': '+39 ### ### ####',
+      'ja': '0#-####-####',
+      'zh_CN': '1## #### ####'
+    },
+    postal: {
+      'en': '#####-####',
+      'de': '#####',
+      'fr': '#####',
+      'es': '#####',
+      'it': '#####',
+      'ja': '###-####',
+      'zh_CN': '######'
+    }
+  };
+
+  const exports = { LOCALES, LOCALE_FORMATS };
+  
   if (typeof window !== 'undefined') {
-    // Content script context (has window)
-    window.LOCALES = LOCALES;
+    Object.assign(window, exports);
   } else if (typeof self !== 'undefined') {
-    // Service worker context (has self)
-    self.LOCALES = LOCALES;
+    Object.assign(self, exports);
   } else {
-    // Fallback
-    global.LOCALES = LOCALES;
+    Object.assign(global, exports);
   }
 })(this);

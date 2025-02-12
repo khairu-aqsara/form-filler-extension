@@ -21,41 +21,43 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+function showNotification(message, type = 'info') {
+  chrome.notifications.create({
+    type: 'basic',
+    iconUrl: 'slack.png',
+    title: 'Form Filler',
+    message: message
+  });
+}
+
 // Handle context menu clicks
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  try {
-    // Validate tab exists
-    if (!tab || !tab.id) {
-      throw new Error('No active tab found');
-    }
-
-    // Extract locale from menu item ID
-    const locale = info.menuItemId.split('-')[1] || 'en';
-
-    // Execute the content script first to ensure it's loaded
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      files: ['faker.js', 'content.js']
-    }).then(() => {
-      // Then send the message with locale
-      chrome.tabs.sendMessage(tab.id, {
-        action: "fillForm",
-        locale: locale
-      }, (response) => {
-        // Handle response from content script
-        if (chrome.runtime.lastError) {
-          console.error('Message failed:', chrome.runtime.lastError);
-          return;
-        }
-        if (!response?.success) {
-          console.error('Form fill failed:', response?.error || 'Unknown error');
-        }
-      });
-    }).catch(err => {
-      console.error('Failed to execute content script:', err);
-      throw err;
-    });
-  } catch (error) {
-    console.error('Context menu handler error:', error);
+  if (!tab?.id) {
+    showNotification('No active tab found', 'error');
+    return;
   }
+
+  const requestedLocale = info.menuItemId.split('-')[1] || 'en';
+  
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ['locales.js', 'faker.js', 'content.js']
+  }).then(() => {
+    return chrome.tabs.sendMessage(tab.id, {
+      action: "fillForm",
+      locale: requestedLocale
+    });
+  }).then(response => {
+    if (!response?.success) {
+      throw new Error(response?.error || 'Unknown error');
+    }
+    if (response.usedLocale !== requestedLocale) {
+      showNotification(`Form filled using ${response.usedLocale} locale as fallback`);
+    } else {
+      showNotification('Form filled successfully');
+    }
+  }).catch(error => {
+    console.error('Operation failed:', error);
+    showNotification(`Error: ${error.message}`, 'error');
+  });
 });
