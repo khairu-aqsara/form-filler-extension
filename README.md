@@ -33,13 +33,12 @@ function detectFieldType(field) {
 
 ## How to use it?
 
-1.  Install the extension from the Chrome Web Store or Edge Add-ons store (when available) or by following the installation steps below.
-2.  Navigate to any webpage with a form.
-3.  Right-click anywhere on the page.
-4.  Select "Fill Form with Faker Data" from the context menu.
-5.  The form fields will be automatically filled with realistic data.
+1.  Navigate to any webpage with a form.
+2.  Right-click anywhere on the page.
+3.  Select "Fill Form with Faker Data" from the context menu.
+4.  The form fields will be automatically filled with realistic data.
 
-## Installation
+## Installation (Developer Mode)
 
 1. Clone or download this repository
 2. Install dependencies:
