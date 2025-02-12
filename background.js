@@ -11,14 +11,26 @@ const SCRIPTS_TO_INJECT = [
 
 // Available locales
 const LOCALES = [
-  { id: 'en', title: 'English (US)' },
   { id: 'de', title: 'German (Deutsch)' },
-  { id: 'fr', title: 'French (Français)' },
+  { id: 'en', title: 'English' },
   { id: 'es', title: 'Spanish (Español)' },
+  { id: 'fa', title: 'Farsi' },
+  { id: 'fr', title: 'French (Français)' },
+  { id: 'ge', title: 'Georgian' },
+  { id: 'id_ID', title: 'Indonesian' },
   { id: 'it', title: 'Italian (Italiano)' },
   { id: 'ja', title: 'Japanese (日本語)' },
   { id: 'ko', title: 'Korean (한국어)' },
-  { id: 'zh_CN', title: 'Chinese (中文)' }
+  { id: 'pl', title: 'Polish' },
+  { id: 'pt_BR', title: 'Portuguese (Brazil)' },
+  { id: 'ru', title: 'Russian' },
+  { id: 'sk', title: 'Slovak' },
+  { id: 'sv', title: 'Swedish' },
+  { id: 'tr', title: 'Turkish' },
+  { id: 'uk', title: 'Ukrainian' },
+  { id: 'vi', title: 'Vietnamese' },
+  { id: 'zh_CN', title: 'Chinese (中文)' },
+  { id: 'zh_TW', title: 'Chinese (Taiwan)' }
 ];
 
 // Track tabs where scripts are injected

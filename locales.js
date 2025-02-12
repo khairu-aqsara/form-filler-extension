@@ -1,17 +1,42 @@
 // Shared locales configuration
 (function(global) {
   const LOCALES = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Spanish' },
-    { code: 'fr', name: 'French' },
     { code: 'de', name: 'German' },
+    { code: 'de_AT', name: 'German (Austria)' },
+    { code: 'de_CH', name: 'German (Switzerland)' },
+    { code: 'en', name: 'English' },
+    { code: 'en_AU', name: 'English (Australia)' },
+    { code: 'en_BORK', name: 'English (Bork)' },
+    { code: 'en_CA', name: 'English (Canada)' },
+    { code: 'en_GB', name: 'English (Great Britain)' },
+    { code: 'en_IE', name: 'English (Ireland)' },
+    { code: 'en_IND', name: 'English (India)' },
+    { code: 'en_US', name: 'English (United States)' },
+    { code: 'en_au_ocker', name: 'English (Ocker)' },
+    { code: 'es', name: 'Spanish' },
+    { code: 'es_MX', name: 'Spanish (Mexico)' },
+    { code: 'fa', name: 'Farsi' },
+    { code: 'fr', name: 'French' },
+    { code: 'fr_CA', name: 'French (Canada)' },
+    { code: 'ge', name: 'Georgian' },
+    { code: 'id_ID', name: 'Indonesian' },
     { code: 'it', name: 'Italian' },
     { code: 'ja', name: 'Japanese' },
     { code: 'ko', name: 'Korean' },
-    { code: 'zh_CN', name: 'Chinese' },
+    { code: 'nb_NO', name: 'Norwegian Bokmål' },
+    { code: 'nep', name: 'Nepali' },
+    { code: 'nl', name: 'Dutch' },
+    { code: 'pl', name: 'Polish' },
     { code: 'pt_BR', name: 'Portuguese (Brazil)' },
-    { code: 'ru', name: 'Russian' }
-  ];
+    { code: 'ru', name: 'Russian' },
+    { code: 'sk', name: 'Slovak' },
+    { code: 'sv', name: 'Swedish' },
+    { code: 'tr', name: 'Turkish' },
+    { code: 'uk', name: 'Ukrainian' },
+    { code: 'vi', name: 'Vietnamese' },
+    { code: 'zh_CN', name: 'Chinese (China)' },
+    { code: 'zh_TW', name: 'Chinese (Taiwan)' }
+];
 
   const LOCALE_FORMATS = {
     date: {
