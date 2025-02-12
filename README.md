@@ -1,4 +1,4 @@
-# Form Auto Fill Chrome Extension v1.3
+# Form Auto Fill Chrome Extension v1.4
 
 A Chrome/Edge extension that automatically fills forms with realistic fake data using Faker.js.
 
@@ -107,10 +107,11 @@ The extension consists of the following files:
 ## Changelog
 
 ### v1.4
-- Added support for number input fields
-- Added support for date input fields
-- Added support for color input fields
-- Added support for password input fields (default: 12345678)
+- Added support for number, date, color and password input fields
+- Implemented dynamic module loading
+- Enhanced form filling capabilities
+- Added additional language support
+- Improved locale configurations
 
 ### v1.3
 - Initial release with basic form filling capabilities
